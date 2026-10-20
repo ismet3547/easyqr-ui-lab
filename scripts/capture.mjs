@@ -66,6 +66,6 @@ for(const [name,width,height] of [["desktop",1440,900],["wide",1100,900],["table
   await page.close();
 }
 assert.equal(errorLog.length,0,"Browser errors: "+errorLog.join("; "));
-console.log("PASS: "+routes.length+" routes checked at 320/390/768/1440px");
+console.log("PASS: "+routes.length+" routes checked at 320/390/768/1100/1440px");
 console.log("PASS: no horizontal overflow, "+files.length+" screenshots captured");
 await browser.close();
