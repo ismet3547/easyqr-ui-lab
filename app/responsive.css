@@ -61,6 +61,7 @@
   .type-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
 }
 @media (max-width:700px) {
+  .app-shell {display:block;}
   .sidebar {display:none;}
   .mobile-top {position:sticky;top:0;height:57px;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--surface);padding:0 17px;border-bottom:1px solid var(--border-subtle);}
   .mobile-top .brand {font-size:18px;}
