@@ -29,7 +29,7 @@ npm run start
 node scripts/capture.mjs
 ```
 
-The screenshot script requires a server at `http://127.0.0.1:3000` (or set `BASE_URL`), captures to `screenshots/`, visits all 11 routes at 320/390/768/1440px, and asserts no horizontal document overflow. GitHub Actions also runs the visual QA suite and uploads screenshots as a build artifact.
+The screenshot script requires a server at `http://127.0.0.1:3000` (or set `BASE_URL`), captures to `screenshots/`, visits all 11 routes at 320/390/768/1100/1440px, and asserts no horizontal document overflow. GitHub Actions also runs the visual QA suite and uploads screenshots as a build artifact.
 
 ## Routes
 
