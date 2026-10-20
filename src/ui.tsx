@@ -131,6 +131,7 @@ export function Sidebar({pathname}:{pathname:string}) {
 export function MobileNavigation({pathname}:{pathname:string}) {
   const [more,setMore]=useState(false);
   useEffect(()=>setMore(false),[pathname]);
+  useEffect(()=>{if(!more)return;const close=(e:KeyboardEvent)=>{if(e.key==="Escape")setMore(false);};document.addEventListener("keydown",close);return()=>document.removeEventListener("keydown",close);},[more]);
   const bottom=[
     {href:"/dashboard",label:"Home",icon:Home},
     {href:"/dashboard/content",label:"Content",icon:List},
