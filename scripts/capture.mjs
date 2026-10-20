@@ -37,7 +37,7 @@ for(const [name,width,height] of [["desktop",1440,900],["tablet",768,900],["mobi
       ["/create/preview","final-preview"],["/login","login"]
     ])await take(path,label);
     await take("/dashboard/content",null);
-    await page.getByRole("button",{name:/Cappuccino.*Espresso/}).first().click().catch(async()=>await page.locator(".resource-row").first().click());
+    await page.locator(".resource-row").first().click();
     await page.getByRole("dialog",{name:"Edit menu item"}).waitFor();
     await page.screenshot({path:`${output}/desktop-content-drawer.png`,fullPage:true});
     files.push(`${output}/desktop-content-drawer.png`);
