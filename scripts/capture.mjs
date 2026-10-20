@@ -13,7 +13,7 @@ const routes = [
 ];
 const files = [];
 const errorLog = [];
-for(const [name,width,height] of [["desktop",1440,900],["tablet",768,900],["mobile",390,844],["small",320,720]]) {
+for(const [name,width,height] of [["desktop",1440,900],["wide",1100,900],["tablet",768,900],["mobile",390,844],["small",320,720]]) {
   const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1});
   page.on("pageerror",error=>errorLog.push(name+": "+error.message));
   const take=async (path,label)=>{
@@ -39,7 +39,7 @@ for(const [name,width,height] of [["desktop",1440,900],["tablet",768,900],["mobi
     await take("/dashboard/content",null);
     await page.locator(".resource-row").first().click();
     await page.getByRole("dialog",{name:"Edit menu item"}).waitFor();
-    await page.screenshot({path:`${output}/desktop-content-drawer.png`,fullPage:true});
+    await page.screenshot({path:`${output}/desktop-content-drawer.png`,fullPage:false});
     files.push(`${output}/desktop-content-drawer.png`);
     await take("/dashboard/domain",null);
     await page.getByRole("group",{name:"Domain demo state"}).getByRole("button",{name:"Waiting"}).click();
@@ -60,7 +60,7 @@ for(const [name,width,height] of [["desktop",1440,900],["tablet",768,900],["mobi
     await take("/dashboard/content",null);
     await page.locator(".resource-row").first().click();
     await page.getByRole("dialog",{name:"Edit menu item"}).waitFor();
-    await page.screenshot({path:`${output}/mobile-content-editor.png`,fullPage:true});
+    await page.screenshot({path:`${output}/mobile-content-editor.png`,fullPage:false});
     files.push(`${output}/mobile-content-editor.png`);
   }
   await page.close();
