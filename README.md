@@ -129,4 +129,4 @@ The bundled sample café photographs are from Unsplash (image IDs): `1554118811-
 
 ## Approval boundary
 
-This prototype must be visually reviewed before any production implementation. Do not merge or begin production work without explicit owner instruction. Browser layout approval is pending; this is a review branch, not an approved production design.
+This prototype must be visually reviewed before any production implementation. Do not merge or begin production work without explicit owner instruction. Automated browser review passes at all five viewport widths, and 26 screenshots are available (see the review record). Owner visual approval is pending; this is a review branch, not an approved production design.

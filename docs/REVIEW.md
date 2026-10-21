@@ -1,45 +1,52 @@
-# Actual review status
+# Visual review record
 
-This is an isolated mock prototype in `ismet3547/easyqr-ui-lab`, branch `feat/quiet-utility-prototype`. No production repository was opened or modified. The existing feature-branch history and Visual Lab QA workflow are retained; the earlier root `app/` entrypoint and monolithic UI are replaced by the modular `src/app/` implementation.
+Isolated prototype: `ismet3547/easyqr-ui-lab`, branch `feat/quiet-utility-prototype`, PR #1. The existing branch history and Visual Lab QA workflow are retained; the earlier root `app/` entrypoint and monolithic UI are replaced by the modular `src/app/` implementation. No production repository was opened or modified.
 
-## Completed
+## Verified application revision
 
-- Strict TypeScript check.
-- Optimized Next.js static export: all routes prerendered.
-- Local application run: HTTP 200 for every application route listed in the README, including `/create/setup`.
-- Static output inspection: every application screen contains its page heading.
-- Source inspection for central palette tokens, local state, native dialog behavior, reduced-motion styles, mobile navigation structure, and bundled assets.
+**Source commit:** `118451259605e5fa292d00c0217f0751fc224eb5`.
 
-The execution container does not mount `/proc`. Next.js process-memory instrumentation fails in that environment. For the build and local run, an untracked environment-only Node preload used V8 heap statistics and process resource usage as a fallback. This workaround lives outside the repository and is not an application dependency or a normal run requirement.
+**Green CI run:** [Visual Lab QA #11](https://github.com/ismet3547/easyqr-ui-lab/actions/runs/39639340273).
 
-## Blocked here
+- Dependency installation, TypeScript and optimized Next.js static export pass on Ubuntu / Node.js 22.
+- **30 browser checks passed, 5 intentionally skipped, 0 failed.** Skips are viewport-specific cases: mobile navigation on non-mobile widths and screenshot capture at 320/1100px.
+- All 12 application routes render without browser errors or horizontal document overflow at **320, 390, 768, 1100 and 1440px**.
+- Browser checks exercise search, local edits/visibility/deletion, design discard/save and client navigation, analytics range/zero state, domain progression, a real PNG download, mobile More navigation, and dialog focus containment/Escape/focus restoration.
+- **26 screenshots produced**, including all 22 required combinations. Actual PNG widths are verified as 1440/390/768px. Editor captures use the viewport only; the mobile editor is 390 × 844px.
+- The locally run application and exported static preview returned HTTP 200 for every application route; the static QR asset also returned 200.
 
-The managed browser preview supervisor is unavailable (`sites-previewd` mailbox missing), and the cloud browser cannot reach the local application (`ERR_CONNECTION_REFUSED`). The app itself responds successfully to HTTP checks in its local execution session.
+The initial browser run exposed trailing-slash hydration mismatches, modal Tab wrapping and narrow onboarding progress overflow. These are fixed in the verified source revision. Captures wait for hydration, local fonts and images.
 
-**Screenshots produced: 0.** No browser layout, screenshot, keyboard interaction or viewport assertion is claimed as verified. The Playwright suite is provided and typechecked but has not been executed in a browser in this environment. All 320/390/768/1100/1440px browser checks for this revision remain pending. The retained GitHub Actions workflow can run the full suite against this revision after the branch update; previous successful runs do not verify this new UI.
+## Screenshot inventory
 
-This branch is **not yet ready for visual approval**. Complete the browser suite and inspect the captures before approving the UI.
+| Width  | Screens                                                                                                                                                                                                                           | Count |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| 1440px | Overview, Content, Content editor, Design, dirty Bold preview, QR & Share, Analytics, zero Analytics, Domain waiting DNS, Domain connected, onboarding business type, onboarding content, onboarding design, final preview, Login | 15    |
+| 390px  | Overview, Content, Content editor, Design, dirty Bold preview, QR & Share, Domain waiting DNS, onboarding design                                                                                                                  | 8     |
+| 768px  | Overview, Content, Design                                                                                                                                                                                                         | 3     |
 
-## Capture inventory supplied by the suite
+[Download the CI screenshot artifact](https://github.com/ismet3547/easyqr-ui-lab/actions/runs/39639340273/artifacts/12364356930). The artifact has a 30-day retention period. The delivery also includes a separate ZIP of all 26 captures.
 
-| Width  | Screens                                                                                                                                                                                                                           |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1440px | Overview, Content, Content editor, Design, dirty Bold preview, QR & Share, Analytics, zero Analytics, Domain waiting DNS, Domain connected, onboarding business type, onboarding content, onboarding design, final preview, Login |
-| 390px  | Overview, Content, Content editor, Design, dirty Bold preview, QR & Share, Domain waiting DNS, onboarding design                                                                                                                  |
-| 768px  | Overview, Content, Design                                                                                                                                                                                                         |
+Primary desktop, tablet and mobile captures were visually inspected, including the corrected editor and onboarding layout. Owner visual approval and manual screen-reader review remain separate from automated browser checks. The PR stays a draft and is not merged.
 
-This is 26 planned captures, including all 22 required combinations. They are not existing screenshots.
+## Local environment limitation
+
+The execution container does not mount `/proc`. For local Next.js builds, an untracked, environment-only Node preload used V8 heap statistics and process resource usage as a fallback. That workaround lives outside this repository and is not a normal run requirement. CI uses an ordinary Ubuntu runner and passes without it.
+
+The managed browser bridge in this conversation is unavailable (`sites-previewd` mailbox missing; cloud browser connection refused). Interactive browser validation and screenshots therefore ran through this repository's retained GitHub Actions workflow. The prototype remains interactive when run locally using the README commands.
 
 ## Known prototype compromises
 
 - All state resets on refresh; client navigation retains local state.
-- MENU is the onboarding content fixture. Other type tiles demonstrate selection only.
+- MENU is the onboarding content fixture. Other business type tiles demonstrate selection only.
 - Decorative row drag grips do not reorder content.
-- Premium Studio settings are illustrative. QR customization changes the visual sample; exports use the original fixed QR.
+- Premium Studio preferences are illustrative. QR customization changes the visual sample; exports use the original fixed QR.
 - “Open page” and “Open domain” show the internal customer preview.
 - No real DNS checks, authentication, publishing, account changes, uploads, billing or analytics happen.
-- Public pages are compact previews of real HTML content, not physical phone mockups.
+- Customer pages use compact HTML viewports, not physical phone frames.
 
-## Review checklist
+## Reproduce
 
-Run `npm ci`, `npm run typecheck`, `npm run build`, `npx playwright install chromium`, then `npm run test:ui`. Inspect the screenshots at 390, 768 and 1440px. Review the 320 and 1100px overflow results and keyboard tests. Confirm the editor and dirty-design bar remain easy to use on narrow screens. Any visual changes require fresh captures before approval.
+Run `npm ci`, `npm run typecheck`, `npm run build`, `npx playwright install chromium`, then `npm run test:ui`. Captures are written to `review/screenshots/` locally. To use the existing CI entrypoint against a static build, run `npm start` on port 3000, then `node scripts/capture.mjs`; that writes captures to `screenshots/`.
+
+**Production implementation remains blocked until explicit owner visual approval.**
