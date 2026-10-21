@@ -22,6 +22,10 @@ test("every route renders without errors or horizontal overflow", async ({
   page.on("pageerror", (error) => errors.push(error.message));
   for (const route of routes) {
     await page.goto(route);
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-ui-lab-ready",
+      "true",
+    );
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     await page.evaluate(() => document.fonts.ready);
     expect(
@@ -55,13 +59,21 @@ test("capture the owner review screens", async ({ page }, testInfo) => {
     );
     await page.screenshot({
       path: path.join(dir, `${name}.png`),
-      fullPage: true,
+      fullPage: !name.includes("editor") && name !== "design-previewing-bold",
       animations: "disabled",
     });
   };
   await page.goto("/dashboard");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await capture("overview");
   await page.goto("/dashboard/content");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await capture("content");
   if (width !== 768) {
     await page
@@ -77,6 +89,10 @@ test("capture the owner review screens", async ({ page }, testInfo) => {
       .click();
   }
   await page.goto("/dashboard/design");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await capture("design");
   if (width === 768) return;
   await page.locator(".design-choice").filter({ hasText: "Bold" }).click();
@@ -85,9 +101,17 @@ test("capture the owner review screens", async ({ page }, testInfo) => {
   ).toBeVisible();
   await capture("design-previewing-bold");
   await page.goto("/dashboard/share");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await capture("qr-share");
   if (width === 1440) {
     await page.goto("/dashboard/analytics");
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-ui-lab-ready",
+      "true",
+    );
     await capture("analytics");
     await page
       .getByRole("button", { name: "UI Lab: preview zero activity" })
@@ -95,6 +119,10 @@ test("capture the owner review screens", async ({ page }, testInfo) => {
     await capture("analytics-zero");
   }
   await page.goto("/dashboard/domain");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await page
     .getByRole("combobox", { name: "Domain visual state" })
     .selectOption("Waiting");
@@ -105,16 +133,36 @@ test("capture the owner review screens", async ({ page }, testInfo) => {
       .selectOption("Connected");
     await capture("domain-connected");
     await page.goto("/create");
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-ui-lab-ready",
+      "true",
+    );
     await capture("onboarding-business");
     await page.goto("/create/content");
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-ui-lab-ready",
+      "true",
+    );
     await capture("onboarding-content");
   }
   await page.goto("/create/design");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await capture("onboarding-design");
   if (width === 1440) {
     await page.goto("/create/preview");
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-ui-lab-ready",
+      "true",
+    );
     await capture("final-preview");
     await page.goto("/login");
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-ui-lab-ready",
+      "true",
+    );
     await capture("login");
   }
 });

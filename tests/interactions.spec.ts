@@ -3,6 +3,10 @@ test("search, edit, visibility and delete update local menu state", async ({
   page,
 }) => {
   await page.goto("/dashboard/content");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await page
     .getByRole("textbox", { name: "Search menu items" })
     .fill("Cappuccino");
@@ -37,6 +41,10 @@ test("search, edit, visibility and delete update local menu state", async ({
 });
 test("design preview supports discard and save", async ({ page }) => {
   await page.goto("/dashboard/design");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await page.locator(".design-choice").filter({ hasText: "Bold" }).click();
   await expect(page.locator(".public-preview")).toHaveClass(/preview-bold/);
   await page.getByRole("button", { name: "Discard", exact: true }).click();
@@ -55,6 +63,10 @@ test("analytics ranges and zero activity, domain states and download", async ({
   page,
 }) => {
   await page.goto("/dashboard/analytics");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await page.getByRole("button", { name: "7 days", exact: true }).click();
   await expect(page.locator(".analytics-primary")).toHaveText("318");
   await page
@@ -64,6 +76,10 @@ test("analytics ranges and zero activity, domain states and download", async ({
     page.getByRole("heading", { name: "No activity yet" }),
   ).toBeVisible();
   await page.goto("/dashboard/domain");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await page.getByRole("button", { name: "Connect", exact: true }).click();
   await expect(page.getByText("Complete these two DNS records.")).toBeVisible();
   await page.getByRole("button", { name: "Check again", exact: true }).click();
@@ -73,6 +89,10 @@ test("analytics ranges and zero activity, domain states and download", async ({
     page.getByRole("heading", { name: "Connected securely" }),
   ).toBeVisible();
   await page.goto("/dashboard/share");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   await page.getByRole("button", { name: "Large", exact: true }).click();
   const pending = page.waitForEvent("download");
   await page.getByRole("button", { name: "Download PNG" }).click();
@@ -83,6 +103,10 @@ test("drawer traps focus and Escape returns it to the row", async ({
   page,
 }) => {
   await page.goto("/dashboard/content");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   const row = page.getByRole("button", {
     name: "Edit Cappuccino",
     exact: true,
@@ -106,6 +130,10 @@ test("mobile More preserves Analytics and Domain navigation", async ({
 }) => {
   test.skip(page.viewportSize()!.width > 700, "Mobile navigation only.");
   await page.goto("/dashboard");
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-ui-lab-ready",
+    "true",
+  );
   const nav = page.getByRole("navigation", { name: "Mobile navigation" });
   await expect(nav.getByRole("link")).toHaveCount(4);
   await nav.getByRole("button", { name: "More", exact: true }).click();

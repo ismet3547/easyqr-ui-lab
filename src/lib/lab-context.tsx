@@ -2,6 +2,7 @@
 import {
   createContext,
   useCallback,
+  useEffect,
   useContext,
   useState,
   type ReactNode,
@@ -34,6 +35,12 @@ type LabContextValue = {
 };
 const LabContext = createContext<LabContextValue | null>(null);
 export function LabProvider({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    document.documentElement.dataset.uiLabReady = "true";
+    return () => {
+      delete document.documentElement.dataset.uiLabReady;
+    };
+  }, []);
   const [items, setItems] = useState(initialItems);
   const [savedDesign, setSavedDesign] = useState("Clean");
   const [plan, setPlan] = useState("Pilot Premium");

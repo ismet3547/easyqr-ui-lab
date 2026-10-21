@@ -13,7 +13,19 @@ export default defineConfig({
   },
   projects: [320, 390, 768, 1100, 1440].map((width) => ({
     name: `${width}px`,
-    use: { viewport: { width, height: width === 768 ? 1024 : 1000 } },
+    use: {
+      viewport: {
+        width,
+        height:
+          width === 768
+            ? 1024
+            : width === 390
+              ? 844
+              : width === 320
+                ? 720
+                : 900,
+      },
+    },
   })),
   webServer: process.env.BASE_URL
     ? undefined

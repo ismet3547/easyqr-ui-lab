@@ -295,7 +295,31 @@ export function Dialog({
     if (open) {
       el.showModal();
     }
+    const containTab = (event: KeyboardEvent) => {
+      if (event.key !== "Tab" || !el.open) return;
+      const controls = Array.from(
+        el.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((node) => node.getClientRects().length > 0);
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      const active = document.activeElement;
+      if (!first || !last) {
+        event.preventDefault();
+        return;
+      }
+      if (event.shiftKey && (active === first || !el.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (active === last || !el.contains(active))) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    el.addEventListener("keydown", containTab);
     return () => {
+      el.removeEventListener("keydown", containTab);
       if (el.open) el.close();
       previous?.focus();
     };

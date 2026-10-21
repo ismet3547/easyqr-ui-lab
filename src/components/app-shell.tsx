@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRoutePath } from "@/lib/use-route-path";
 import { useState, useId } from "react";
 import {
   LayoutDashboard,
@@ -98,7 +98,7 @@ export function BusinessSwitcher({ compact = false }: { compact?: boolean }) {
   );
 }
 export function Sidebar() {
-  const path = usePathname();
+  const path = useRoutePath();
   const { plan } = useLab();
   const [account, setAccount] = useState(false);
   return (
@@ -168,7 +168,7 @@ export function Sidebar() {
   );
 }
 export function MobileNavigation() {
-  const path = usePathname();
+  const path = useRoutePath();
   const [more, setMore] = useState(false);
   const links = [
     { href: "/dashboard", label: "Home", icon: Home },
@@ -284,7 +284,7 @@ export function LabControls() {
   );
 }
 export function AppShell({ children }: { children: React.ReactNode }) {
-  const path = usePathname();
+  const path = useRoutePath();
   const title = navigation.find((n) => n.href === path)?.label || "Overview";
   const { businessName, live } = useLab();
   return (
@@ -331,7 +331,7 @@ const steps = [
   ["Preview", "/create/preview"],
 ];
 export function OnboardingShell({ children }: { children: React.ReactNode }) {
-  const path = usePathname();
+  const path = useRoutePath();
   const current = steps.findIndex(([, href]) => href === path);
   return (
     <div className="onboarding-shell">
