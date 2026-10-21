@@ -1,0 +1,40 @@
+.review-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--canvas);
+}
+.review-page > iframe {
+  display: block;
+  border: 0;
+  background: var(--canvas);
+  max-width: none;
+}
+.review-toolbar {
+  font-size: 12px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  min-width: 320px;
+  border-top: 1px dashed var(--border-strong);
+  background: var(--surface);
+  flex-wrap: wrap;
+}
+.review-toolbar label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.review-toolbar select {
+  font-size: 12px;
+  border: 1px solid var(--border-default);
+  padding: 6px;
+  background: var(--surface);
+  border-radius: 4px;
+}
+body:has(> .review-page) > .lab-controls,
+body:has(.review-page) > .lab-controls {
+  display: none;
+}

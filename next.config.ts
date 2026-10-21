@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  reactStrictMode: true,
+const config: NextConfig = {
+  output: "export",
+  devIndicators: false,
+  trailingSlash: true,
+  images: { unoptimized: true },
+  allowedDevOrigins: ["terminal.local"],
 };
-
-export default nextConfig;
+export default config;
