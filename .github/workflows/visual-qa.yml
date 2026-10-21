@@ -1,0 +1,42 @@
+name: Visual Lab QA
+on:
+  push:
+    branches:
+      - feat/quiet-utility-prototype
+  workflow_dispatch:
+jobs:
+  ui-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: TypeScript check
+        run: npm run typecheck
+      - name: Build Next.js application
+        run: npm run build
+      - name: Run prototype
+        run: |
+          npm run start -- --hostname 127.0.0.1 > /tmp/easyqr-server.log 2>&1 &
+          for i in {1..45}; do
+            if curl --fail --silent http://127.0.0.1:3000/dashboard > /dev/null; then exit 0; fi
+            sleep 2
+          done
+          cat /tmp/easyqr-server.log
+          exit 1
+      - name: Capture visual review
+        run: node scripts/capture.mjs
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: easyqr-quiet-utility-screenshots
+          path: screenshots/
+          if-no-files-found: warn
+          retention-days: 30

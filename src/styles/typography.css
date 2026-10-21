@@ -1,0 +1,993 @@
+/* Owner-facing type uses the shared hierarchy; miniature public previews scale independently. */
+body {
+  font-size: var(--type-body);
+  line-height: var(--line-body);
+}
+h1 {
+  font-size: var(--type-title);
+  line-height: var(--line-title);
+  font-weight: var(--weight-title);
+}
+h2 {
+  font-size: var(--type-heading);
+  line-height: var(--line-heading);
+}
+h3 {
+  font-size: var(--type-subheading);
+  line-height: var(--line-subheading);
+}
+.button {
+  font-size: var(--type-label);
+}
+.page-header p {
+  font-size: var(--type-body);
+  line-height: var(--line-body);
+}
+.section-header h2 {
+  font-size: var(--type-subheading);
+  line-height: var(--line-subheading);
+}
+.section-header .meta,
+.section-header > .text-link {
+  font-size: var(--type-meta);
+}
+.sidebar-nav a {
+  font-size: var(--type-label);
+}
+.switcher-text strong {
+  font-size: var(--type-label);
+}
+.switcher-text small {
+  font-size: var(--type-meta);
+}
+.breadcrumbs {
+  font-size: var(--type-meta);
+}
+.topbar-status {
+  font-size: 11px;
+}
+.account-button strong {
+  font-size: 12px;
+}
+.account-button small {
+  font-size: 11px;
+}
+.open-page-link {
+  font-size: 13px;
+}
+.plan-note {
+  font-size: 12px;
+}
+.business-meta {
+  font-size: 12px;
+}
+.business-meta .badge {
+  font-size: 12px;
+}
+.preview-topline .label {
+  font-size: 11px;
+}
+.preview-topline .meta {
+  font-size: 10px;
+}
+.preview-caption {
+  font-size: 10px;
+}
+.page-summary > div > p {
+  font-size: 13px;
+  line-height: 21px;
+}
+.summary-list > div {
+  font-size: 13px;
+  line-height: 20px;
+}
+.summary-tip strong {
+  font-size: 12px;
+  line-height: 18px;
+}
+.summary-tip p {
+  font-size: 11px;
+  line-height: 18px;
+}
+.summary-tip a {
+  font-size: 12px;
+}
+.metric-label {
+  font-size: 13px;
+  line-height: 20px;
+}
+.performance-note p {
+  font-size: 12px;
+  line-height: 19px;
+}
+.quick-action strong {
+  font-size: 13px;
+}
+.quick-action p {
+  font-size: 11px;
+  line-height: 18px;
+}
+.quick-action > svg {
+  display: block;
+}
+.resource-info strong {
+  font-size: 14px;
+  line-height: 21px;
+}
+.resource-info > span {
+  font-size: 12px;
+  line-height: 18px;
+}
+.resource-price {
+  font-size: 13px;
+}
+.resource-status .badge {
+  font-size: 11px;
+  line-height: 18px;
+}
+.content-group header h2 {
+  font-size: 14px;
+  line-height: 21px;
+}
+.content-group header .meta {
+  font-size: 12px;
+}
+.content-group header > .text-link {
+  font-size: 12px;
+}
+.content-table-meta {
+  font-size: 11px;
+}
+.search-input input {
+  font-size: 13px;
+}
+.filter-select select {
+  font-size: 12px;
+}
+.content-end {
+  font-size: 11px;
+}
+.field label {
+  font-size: 13px;
+}
+.field input,
+.field textarea,
+.field select {
+  font-size: 14px;
+}
+.editor-eyebrow {
+  font-size: 10px;
+}
+.editor-eyebrow > span:last-child {
+  font-size: 10px;
+}
+.photo-uploader strong {
+  font-size: 13px;
+}
+.photo-uploader p {
+  font-size: 12px;
+  line-height: 18px;
+}
+.photo-uploader .text-link {
+  font-size: 12px;
+}
+.editor-visibility .body-strong {
+  font-size: 14px;
+}
+.editor-visibility p {
+  font-size: 12px;
+}
+.photo-uploader:focus-within {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+.design-choice-info strong {
+  font-size: 14px;
+}
+.design-choice-info > span {
+  font-size: 11px;
+  line-height: 17px;
+}
+.design-choice-info .recommend-label {
+  font-size: 10px;
+}
+.current-design-name .meta {
+  font-size: 12px;
+}
+.design-options > .section-header h2 {
+  font-size: 14px;
+}
+.design-options > .section-header > .meta {
+  font-size: 10px;
+}
+.browse-link {
+  font-size: 13px;
+}
+.studio-entry strong {
+  font-size: 13px;
+}
+.studio-entry p {
+  font-size: 12px;
+  line-height: 18px;
+}
+.design-hint {
+  font-size: 12px;
+  line-height: 20px;
+}
+.workspace-caption {
+  font-size: 10px;
+}
+.qr-heading p {
+  font-size: 13px;
+  line-height: 21px;
+}
+.qr-link {
+  font-size: 13px;
+}
+.qr-download > label {
+  font-size: 12px;
+}
+.qr-download > .meta {
+  font-size: 11px;
+}
+.qr-reassurance {
+  font-size: 11px;
+  line-height: 18px;
+}
+.qr-use > p {
+  font-size: 13px;
+  line-height: 21px;
+}
+.qr-use > h3 {
+  font-size: 14px;
+}
+.qr-use > .use-copy {
+  font-size: 12px;
+  line-height: 20px;
+}
+.use-tags > span {
+  font-size: 10px;
+}
+.qr-custom-entry strong {
+  font-size: 13px;
+}
+.qr-custom-entry p {
+  font-size: 12px;
+  line-height: 19px;
+}
+.analytics-chart-header > div > .inline {
+  font-size: 13px;
+}
+.analytics-chart-header .inline > .muted {
+  font-size: 12px;
+}
+.analytics-chart-header > .date-label {
+  font-size: 12px;
+}
+.chart-axis,
+.chart-x-labels {
+  font-size: 11px;
+}
+.secondary-metric .metric-label {
+  font-size: 12px;
+}
+.traffic-source,
+.traffic-source strong {
+  font-size: 13px;
+}
+.traffic-note {
+  font-size: 11px;
+}
+.top-content-list strong {
+  font-size: 13px;
+}
+.top-content-list small {
+  font-size: 11px;
+}
+.domain-empty > p {
+  font-size: 14px;
+  line-height: 22px;
+}
+.domain-empty > .meta {
+  font-size: 12px;
+  line-height: 20px;
+}
+.domain-form .field label {
+  font-size: 13px;
+}
+.domain-form .field input {
+  font-size: 14px;
+}
+.domain-status-header h2 {
+  font-size: 17px;
+}
+.domain-status-header p {
+  font-size: 12px;
+  line-height: 19px;
+}
+.domain-status-header > .badge {
+  font-size: 11px;
+}
+.dns-intro h3 {
+  font-size: 15px;
+}
+.dns-intro p {
+  font-size: 13px;
+  line-height: 21px;
+}
+.dns-record-header h3 {
+  font-size: 14px;
+}
+.dns-record > .meta {
+  font-size: 12px;
+  line-height: 20px;
+}
+.copy-field-wrap > .label {
+  font-size: 12px;
+}
+.copy-field code {
+  font-size: 12px;
+  line-height: 20px;
+}
+.domain-check-row > .meta {
+  font-size: 12px;
+  line-height: 20px;
+}
+.domain-surface-footer > .meta {
+  font-size: 11px;
+  line-height: 18px;
+}
+.domain-surface-footer > .text-link {
+  font-size: 12px;
+}
+.connected-body p {
+  font-size: 13px;
+  line-height: 21px;
+}
+.connection-progress strong {
+  font-size: 14px;
+}
+.connection-progress > div > span:last-child {
+  font-size: 12px;
+}
+.securing-body > .inline-notice {
+  font-size: 13px;
+  line-height: 21px;
+}
+.platform-fallback strong {
+  font-size: 13px;
+}
+.platform-fallback p {
+  font-size: 12px;
+  line-height: 20px;
+}
+.platform-fallback > .badge {
+  font-size: 11px;
+}
+.onboarding-intro > p,
+.onboarding-page-heading p {
+  font-size: 14px;
+  line-height: 22px;
+}
+.business-type p {
+  font-size: 13px;
+  line-height: 20px;
+}
+.type-note {
+  font-size: 12px;
+  line-height: 19px;
+}
+.existing-account {
+  font-size: 12px;
+}
+.onboarding-action-row > .meta {
+  font-size: 12px;
+  line-height: 19px;
+}
+.onboarding-design-choice strong {
+  font-size: 12px;
+}
+.onboarding-design-choice p {
+  font-size: 11px;
+  line-height: 18px;
+}
+.onboarding-design-controls > p {
+  font-size: 11px;
+}
+.first-content-photo strong {
+  font-size: 12px;
+  line-height: 19px;
+}
+.first-content-photo p {
+  font-size: 11px;
+  line-height: 18px;
+}
+.setup-page > p {
+  font-size: 14px;
+  line-height: 22px;
+}
+.setup-link-preview strong {
+  font-size: 12px;
+}
+.setup-link-preview p {
+  font-size: 12px;
+  line-height: 20px;
+}
+.setup-form > .meta {
+  font-size: 11px;
+}
+.final-preview-toolbar > .preview-label {
+  font-size: 12px;
+}
+.login-form-wrap > p {
+  font-size: 14px;
+  line-height: 21px;
+}
+.login-form-wrap .field label {
+  font-size: 13px;
+}
+.login-form-wrap .field input {
+  font-size: 14px;
+}
+.login-create {
+  font-size: 13px;
+}
+.login-lab-note {
+  font-size: 11px;
+}
+.login-footer {
+  font-size: 12px;
+}
+@media (min-width: 701px) and (max-width: 1199px) {
+  .business-meta {
+    font-size: 10px;
+  }
+  .business-meta .badge {
+    font-size: 10px;
+  }
+  .summary-list > div {
+    font-size: 11px;
+  }
+  .page-summary > div > p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .page-summary {
+    padding-top: 23px;
+  }
+  .summary-list {
+    margin-top: 15px;
+    margin-bottom: 18px;
+  }
+  .summary-tip strong {
+    font-size: 11px;
+  }
+  .summary-tip p {
+    font-size: 10px;
+    line-height: 17px;
+  }
+  .summary-tip a {
+    font-size: 11px;
+  }
+  .quick-action p {
+    font-size: 10px;
+    line-height: 17px;
+    max-width: 150px;
+  }
+  .design-choice-info > span {
+    font-size: 10px;
+    line-height: 16px;
+  }
+  .studio-entry p {
+    font-size: 11px;
+  }
+  .qr-link {
+    font-size: 11px;
+  }
+  .qr-reassurance {
+    font-size: 9px;
+  }
+  .qr-custom-entry .inline {
+    gap: 5px;
+  }
+  .qr-custom-entry strong {
+    font-size: 12px;
+  }
+  .qr-custom-entry p {
+    font-size: 11px;
+  }
+  .analytics-chart-header > .date-label {
+    font-size: 11px;
+  }
+  .top-content-list small {
+    font-size: 10px;
+  }
+  .analytics-bottom .section-header .meta {
+    font-size: 10px;
+  }
+  .onboarding-design-choice strong {
+    font-size: 11px;
+  }
+  .onboarding-design-choice p {
+    font-size: 10px;
+    line-height: 17px;
+  }
+}
+@media (max-width: 700px) {
+  .page-header p {
+    font-size: 13px;
+    line-height: 21px;
+  }
+  .header-actions > .button {
+    font-size: 12px;
+  }
+  .business-meta,
+  .business-meta .badge {
+    font-size: 9px;
+  }
+  .business-heading .button {
+    font-size: 10px;
+    min-height: 33px;
+  }
+  .preview-topline .label {
+    font-size: 10px;
+  }
+  .preview-topline .meta {
+    font-size: 9px;
+  }
+  .preview-caption {
+    font-size: 9px;
+    line-height: 16px;
+  }
+  .summary-list dt,
+  .summary-list dd {
+    font-size: 10px;
+  }
+  .summary-list > div {
+    font-size: 10px;
+  }
+  .summary-list {
+    gap: 0 18px;
+  }
+  .section-header h2 {
+    font-size: 14px;
+  }
+  .section-header .meta {
+    font-size: 10px;
+  }
+  .section-header > .text-link {
+    font-size: 11px;
+  }
+  .metric-label {
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .quick-action strong {
+    font-size: 13px;
+  }
+  .quick-action p {
+    font-size: 12px;
+    line-height: 19px;
+  }
+  .resource-info strong {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .resource-info > span {
+    font-size: 11px;
+    line-height: 17px;
+  }
+  .resource-price {
+    font-size: 12px;
+  }
+  .resource-status .badge {
+    font-size: 10px;
+    line-height: 15px;
+  }
+  .resource-status {
+    bottom: 7px;
+  }
+  .resource-info {
+    padding-bottom: 15px;
+  }
+  .resource-row {
+    min-height: 90px;
+  }
+  .content-group header h2 {
+    font-size: 13px;
+  }
+  .content-group header .meta {
+    font-size: 11px;
+  }
+  .search-input input {
+    font-size: 12px;
+  }
+  .filter-select .field select {
+    font-size: 11px;
+  }
+  .content-table-meta {
+    font-size: 11px;
+  }
+  .content-end {
+    font-size: 10px;
+  }
+  .editor-eyebrow {
+    font-size: 10px;
+  }
+  .editor-eyebrow > span:last-child {
+    font-size: 9px;
+  }
+  .photo-uploader strong {
+    font-size: 12px;
+  }
+  .photo-uploader p {
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .editor-visibility p {
+    font-size: 12px;
+    line-height: 19px;
+  }
+  .design-choice-info strong {
+    font-size: 13px;
+  }
+  .design-choice-info > span {
+    font-size: 10px;
+    line-height: 17px;
+  }
+  .design-options > .section-header h2 {
+    font-size: 14px;
+  }
+  .design-options > .section-header > .meta {
+    font-size: 10px;
+  }
+  .studio-entry p {
+    font-size: 12px;
+    line-height: 19px;
+  }
+  .qr-link {
+    font-size: 12px;
+  }
+  .qr-reassurance {
+    font-size: 9px;
+    line-height: 17px;
+  }
+  .qr-use > p {
+    font-size: 13px;
+    line-height: 21px;
+  }
+  .qr-use > .use-copy {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .qr-custom-entry p {
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .qr-custom-entry strong {
+    font-size: 13px;
+  }
+  .qr-download > label {
+    font-size: 12px;
+  }
+  .qr-download > .meta {
+    font-size: 11px;
+  }
+  .analytics-chart-header > div > .inline {
+    font-size: 12px;
+  }
+  .analytics-chart-header .inline > .muted {
+    font-size: 11px;
+  }
+  .analytics-chart-header > .date-label {
+    font-size: 9px;
+    max-width: 115px;
+  }
+  .chart-axis,
+  .chart-x-labels {
+    font-size: 9px;
+  }
+  .secondary-metric .metric-label {
+    font-size: 10px;
+    line-height: 17px;
+  }
+  .traffic-source,
+  .traffic-source strong {
+    font-size: 13px;
+  }
+  .top-content-list strong {
+    font-size: 13px;
+  }
+  .top-content-list small {
+    font-size: 10px;
+  }
+  .domain-empty > p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+  .domain-empty > .meta {
+    font-size: 11px;
+    line-height: 19px;
+  }
+  .domain-form .field label {
+    font-size: 12px;
+  }
+  .domain-form .field input {
+    font-size: 13px;
+  }
+  .domain-status-header h2 {
+    font-size: 15px;
+  }
+  .domain-status-header p {
+    font-size: 11px;
+    line-height: 19px;
+  }
+  .domain-status-header > .badge {
+    font-size: 10px;
+  }
+  .dns-intro h3 {
+    font-size: 14px;
+  }
+  .dns-intro p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .dns-record-header h3 {
+    font-size: 13px;
+  }
+  .dns-record > .meta {
+    font-size: 11px;
+    line-height: 19px;
+  }
+  .copy-field-wrap > .label {
+    font-size: 12px;
+  }
+  .copy-field code {
+    font-size: 11px;
+    line-height: 19px;
+  }
+  .domain-check-row > .meta {
+    font-size: 11px;
+    line-height: 19px;
+  }
+  .domain-surface-footer > .meta {
+    font-size: 10px;
+    line-height: 17px;
+  }
+  .domain-surface-footer > .text-link {
+    font-size: 11px;
+  }
+  .platform-fallback strong {
+    font-size: 12px;
+  }
+  .platform-fallback p {
+    font-size: 11px;
+    line-height: 19px;
+  }
+  .platform-fallback > .badge {
+    font-size: 10px;
+    margin-left: 36px;
+  }
+  .connection-progress strong {
+    font-size: 12px;
+  }
+  .connection-progress > div > span:last-child {
+    font-size: 10px;
+  }
+  .securing-body > .inline-notice {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .connected-body p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .onboarding-intro > p,
+  .onboarding-page-heading p {
+    font-size: 13px;
+    line-height: 21px;
+  }
+  .business-type p {
+    font-size: 12px;
+    line-height: 19px;
+  }
+  .type-note {
+    font-size: 10px;
+    line-height: 17px;
+  }
+  .business-type {
+    min-height: 192px;
+  }
+  .onboarding-action-row > .meta {
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .existing-account {
+    font-size: 12px;
+  }
+  .first-content-photo strong {
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .first-content-photo p {
+    font-size: 10px;
+    line-height: 17px;
+  }
+  .onboarding-design-choice strong {
+    font-size: 11px;
+    line-height: 17px;
+  }
+  .onboarding-design-choice .choice-radio {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    width: 14px;
+    height: 14px;
+    background: var(--surface);
+  }
+  .onboarding-design-choice.selected .choice-radio {
+    background: var(--accent);
+  }
+  .onboarding-design-choice .choice-radio svg {
+    width: 10px;
+    height: 10px;
+  }
+  .onboarding-design-choice p {
+    font-size: 10px;
+    line-height: 17px;
+  }
+  .onboarding-design-choice > .design-thumbnail {
+    height: 154px;
+  }
+  .onboarding-design-choice > div:last-child {
+    padding: 12px 7px;
+  }
+  .onboarding-design-choice .inline {
+    display: block;
+  }
+  .onboarding-design-controls > p {
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .final-preview-toolbar > .preview-label {
+    font-size: 10px;
+    line-height: 17px;
+  }
+  .login-form-wrap > p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .login-create {
+    font-size: 13px;
+  }
+  .login-lab-note {
+    font-size: 11px;
+  }
+  .login-footer {
+    font-size: 11px;
+  }
+}
+@media (max-width: 359px) {
+  .page-header p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .header-actions > .button {
+    font-size: 11px;
+  }
+  .business-meta,
+  .business-meta .badge {
+    font-size: 8px;
+  }
+  .business-heading .button {
+    font-size: 9px;
+  }
+  .summary-list dt,
+  .summary-list dd {
+    font-size: 9px;
+  }
+  .summary-list {
+    gap: 0 12px;
+  }
+  .section-header h2 {
+    font-size: 13px;
+  }
+  .section-header .meta {
+    font-size: 9px;
+  }
+  .section-header > .text-link {
+    font-size: 10px;
+  }
+  .metric-label {
+    font-size: 10px;
+  }
+  .resource-info strong {
+    font-size: 12px;
+  }
+  .resource-info > span {
+    font-size: 10px;
+    line-height: 16px;
+  }
+  .resource-price {
+    font-size: 11px;
+  }
+  .resource-status .badge {
+    font-size: 9px;
+  }
+  .search-input input {
+    font-size: 11px;
+  }
+  .filter-select .field select {
+    font-size: 10px;
+  }
+  .content-group header .meta {
+    font-size: 10px;
+  }
+  .design-choice-info > span {
+    font-size: 9px;
+  }
+  .qr-link {
+    font-size: 11px;
+  }
+  .qr-custom-entry strong {
+    font-size: 12px;
+  }
+  .qr-custom-entry p {
+    font-size: 10px;
+    line-height: 18px;
+  }
+  .qr-reassurance {
+    font-size: 8px;
+  }
+  .analytics-chart-header > div > .inline {
+    font-size: 11px;
+  }
+  .analytics-chart-header .inline > .muted {
+    font-size: 10px;
+  }
+  .analytics-chart-header > .date-label {
+    font-size: 8px;
+    max-width: 100px;
+  }
+  .secondary-metric .metric-label {
+    font-size: 9px;
+  }
+  .domain-check-row > .meta {
+    font-size: 10px;
+    max-width: 135px;
+  }
+  .domain-surface-footer > .meta {
+    font-size: 9px;
+  }
+  .domain-surface-footer > .text-link {
+    font-size: 10px;
+  }
+  .business-type p {
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .type-note {
+    font-size: 9px;
+    line-height: 16px;
+  }
+  .onboarding-action-row > .meta {
+    font-size: 10px;
+  }
+  .onboarding-design-choice strong {
+    font-size: 10px;
+  }
+  .onboarding-design-choice p {
+    font-size: 9px;
+    line-height: 16px;
+  }
+  .onboarding-design-choice > .design-thumbnail {
+    height: 143px;
+  }
+  .final-preview-toolbar > .preview-label {
+    font-size: 9px;
+    line-height: 16px;
+  }
+}

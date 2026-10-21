@@ -1,0 +1,202 @@
+.content-surface {
+  background: var(--surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.content-toolbar {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.search-input {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  width: 330px;
+  position: relative;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 0 10px;
+  background: var(--surface);
+}
+.search-input > svg {
+  color: var(--text-tertiary);
+}
+.search-input input {
+  border: 0;
+  background: transparent;
+  padding: 8px 0;
+  line-height: 20px;
+  min-width: 0;
+  width: 100%;
+  outline: none;
+}
+.search-input:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--focus);
+}
+.search-input input::placeholder {
+  color: var(--text-tertiary);
+}
+.search-input .icon-button {
+  width: 20px;
+  height: 26px;
+}
+.filter-select {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-secondary);
+}
+.filter-select > svg {
+  display: none;
+}
+.filter-select select {
+  min-height: 36px;
+  line-height: 18px;
+  padding: 7px 28px 7px 10px;
+}
+.content-table-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 22px;
+  color: var(--text-tertiary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.content-table-meta > span:last-child {
+  display: flex;
+  gap: 61px;
+  margin-right: 51px;
+}
+.content-group > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--canvas);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+.content-group:first-of-type > header {
+  border-top: 0;
+}
+.content-group header h2 {
+  font-weight: 550;
+  letter-spacing: 0;
+}
+.content-group header .inline {
+  gap: 8px;
+}
+.content-group header .inline > svg {
+  width: 12px;
+  color: var(--text-tertiary);
+}
+.content-group header .meta {
+  margin-left: 5px;
+}
+.content-group header > .text-link svg {
+  width: 12px;
+}
+.resource-list {
+  width: 100%;
+}
+.resource-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 13px;
+  min-height: 74px;
+  text-align: left;
+  padding: 11px 21px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface);
+}
+.resource-row:hover {
+  background: var(--canvas);
+}
+.resource-row:last-child {
+  border: 0;
+}
+.drag-handle {
+  color: var(--border-strong);
+  flex-shrink: 0;
+  width: 12px;
+}
+.resource-photo {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+.photo-placeholder {
+  background: var(--photo-placeholder);
+  color: var(--cafe-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.resource-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 3px;
+}
+.resource-info strong {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resource-info > span {
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resource-price {
+  font-variant-numeric: tabular-nums;
+  width: 67px;
+  flex-shrink: 0;
+  text-align: right;
+  padding-right: 14px;
+}
+.resource-status {
+  width: 93px;
+  flex-shrink: 0;
+}
+.resource-status .badge {
+  padding: 1px 6px;
+}
+.resource-status .status-dot {
+  width: 4px;
+  height: 4px;
+}
+.resource-more {
+  color: var(--text-tertiary);
+  width: 16px;
+}
+.row-chevron {
+  display: none;
+}
+.content-end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 18px 12px;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-tertiary);
+}
+.content-end .status-dot {
+  width: 4px;
+  height: 4px;
+}
